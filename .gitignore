@@ -1,6 +1,9 @@
 # Env vars
 .env
 
+# local development scripts
+scripts/
+
 # Logs
 logs/
 *.log
