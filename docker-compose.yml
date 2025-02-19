@@ -1,0 +1,12 @@
+services:
+  inventory-db:
+
+  billing-db:
+
+  rabbit-queue:
+
+  inventory-app:
+
+  billing-app:
+
+  api-gateway:
