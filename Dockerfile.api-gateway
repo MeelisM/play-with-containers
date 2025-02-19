@@ -1,0 +1,15 @@
+FROM node:18-alpine
+
+WORKDIR /app .
+
+COPY src/api-gateway/ .
+COPY .env .
+COPY openapi.yaml .
+
+RUN npm install
+
+EXPOSE 3000
+
+RUN mkdir -p /var/log/api-gateway
+
+CMD ["node", "server.js"]
