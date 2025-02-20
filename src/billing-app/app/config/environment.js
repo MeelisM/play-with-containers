@@ -31,5 +31,4 @@ const config = {
     queue: process.env.RABBITMQ_QUEUE,
   },
 };
-
 export default config;

@@ -21,7 +21,6 @@ async function initializeApp() {
     const { port, host } = config.server;
     app.listen(port, () => {
       console.log(`##### Billing service is running on ${host}:${port}`);
-      console.log(`##### Environment: ${config.environment}`);
       console.log("##### CTRL + C to quit.");
     });
   } catch (err) {

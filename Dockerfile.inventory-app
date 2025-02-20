@@ -8,11 +8,6 @@ RUN npm install
 
 COPY src/inventory-app/ .
 
-RUN apk add --no-cache wget netcat-openbsd
-
 EXPOSE 8080
 
-HEALTHCHECK --interval= --timeout=5s --retries= \
-    CMD ["wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/api/movies"]
-
-CMD ["sh", "-c", "echo 'DEBUG: Listing directory contents' && ls -la && echo 'DEBUG: Environment variables' && env && echo 'DEBUG: Checking if database is reachable' && nc -zv inventory-db 5432 && echo 'DEBUG: Starting server with logging' && node server.js"]
+CMD ["node",  "server.js"]

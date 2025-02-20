@@ -6,7 +6,8 @@ let connection;
 
 async function connectQueue() {
   try {
-    connection = await amqp.connect(config.rabbitmq.localUrl);
+    connection = await amqp.connect(config.rabbitmq.apiUrl);
+    console.log(config.rabbitmq.apiUrl);
     channel = await connection.createChannel();
     await channel.assertQueue(config.rabbitmq.queue, { durable: true });
 
