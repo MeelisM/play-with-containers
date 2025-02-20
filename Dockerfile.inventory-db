@@ -1,1 +1,6 @@
 FROM postgres:17-alpine
+
+HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
+    CMD ["pg_isready", "-U", "postgres"]
+
+EXPOSE 5432

@@ -2,9 +2,17 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-COPY src/inventory-app .
-COPY .env .
+COPY src/inventory-app/package*.json ./
 
 RUN npm install
 
-EXPOSE 8081
+COPY src/inventory-app/ .
+
+RUN apk add --no-cache wget netcat-openbsd
+
+EXPOSE 8080
+
+HEALTHCHECK --interval= --timeout=5s --retries= \
+    CMD ["wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/api/movies"]
+
+CMD ["sh", "-c", "echo 'DEBUG: Listing directory contents' && ls -la && echo 'DEBUG: Environment variables' && env && echo 'DEBUG: Checking if database is reachable' && nc -zv inventory-db 5432 && echo 'DEBUG: Starting server with logging' && node server.js"]

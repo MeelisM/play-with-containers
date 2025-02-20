@@ -3,6 +3,7 @@ import db from "./app/models/index.js";
 import initializeRoutes from "./app/routes/movie.routes.js";
 import { checkDatabaseExists } from "./app/config/db.js";
 import morgan from "morgan";
+import config from "./app/config/environment.js";
 
 const app = express();
 
@@ -17,9 +18,9 @@ async function initializeApp() {
     await db.sequelize.sync();
     console.log("##### Database synchronized successfully");
 
-    const PORT = process.env.PORT || 8080;
-    app.listen(PORT, () => {
-      console.log(`##### Inventory service is running on port ${PORT}.`);
+    const { port, host } = config.server;
+    app.listen(port, () => {
+      console.log(`##### Inventory service is running on ${host}:${port}.`);
       console.log("##### CTRL + C to quit.");
     });
   } catch (err) {

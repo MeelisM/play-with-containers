@@ -4,7 +4,6 @@ WORKDIR /app .
 
 COPY src/api-gateway/ .
 COPY .env .
-COPY openapi.yaml .
 
 RUN npm install
 
