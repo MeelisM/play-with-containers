@@ -39,8 +39,6 @@ services:
     depends_on:
       inventory-db:
         condition: service_healthy
-    ports:
-      - ${INVENTORY_PORT}:${INVENTORY_PORT}
     networks:
       - app-network
     restart: always
@@ -87,8 +85,6 @@ services:
     depends_on:
       billing-db:
         condition: service_healthy
-    ports:
-      - ${BILLING_PORT}:${BILLING_PORT}
     networks:
       - app-network
     restart: always
@@ -100,9 +96,6 @@ services:
     env_file:
       - .env
     container_name: rabbitmq-queue
-    ports:
-      - "${RABBITMQ_PORT}:${RABBITMQ_PORT}"
-      - "${RABBITMQ_DASHBOARD_PORT}:${RABBITMQ_DASHBOARD_PORT}"
     environment:
       RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
       RABBITMQ_DEFAULT_PASSWORD: ${RABBITMQ_PASSWORD}
