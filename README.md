@@ -41,7 +41,7 @@ The system consists of the following components:
 git clone https://01.kood.tech/git/mmumm/play-with-containers.git && cd play-with-containers
 ```
 
-### Rename `.env-example` to `.env` and configure it.
+### Rename `.env-example` to `.env` and add the missing values.
 
 ### Build and start the services.
 
@@ -52,7 +52,7 @@ docker compose up -d
 ### Verify all services are running.
 
 ```bash
-docker compose ps
+docker compose ps -a
 ```
 
 ## Services
@@ -68,13 +68,11 @@ docker compose ps
 
 ### Inventory Service (inventory-app)
 
-- Port: 8080
 - Description: Manages movie inventory
 - Database: PostgreSQL (inventory-db)
 
 ### Billing Service (billing-app)
 
-- Port: 8080 (mapped to 8081 externally)
 - Description: Processes orders through RabbitMQ queue
 - Database: PostgreSQL (billing-db)
 
@@ -93,13 +91,6 @@ The API is accessible at `http://localhost:3000/api`
 ### API Documentation
 
 Documentation is available at `http://localhost:3000/api-docs`
-
-### RabbitMQ Management Interface
-
-Access the management interface at `http://localhost:15672`
-
-- Username: `rabbit_user` set in `.env`
-- Password: `rabbit_password` set in `.env`
 
 ## Volumes
 
