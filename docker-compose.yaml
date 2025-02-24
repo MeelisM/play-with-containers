@@ -109,7 +109,7 @@ services:
       RABBITMQ_QUEUE: ${RABBITMQ_QUEUE}
     container_name: api-gateway
     volumes:
-      - api-gateway-logs:/var/log/api-gateway
+      - api-gateway-logs:/var/logs/api-gateway
     ports:
       - "${GATEWAY_PORT}:${GATEWAY_PORT}"
     networks:
