@@ -15,11 +15,6 @@ services:
     networks:
       - app-network
     restart: always
-    healthcheck:
-      test: ["CMD", "pg_isready", "-U", "${INVENTORY_DB_USER}", "-d", "${INVENTORY_DB_NAME}"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
 
   inventory-app:
     build:
@@ -59,11 +54,6 @@ services:
     networks:
       - app-network
     restart: always
-    healthcheck:
-      test: ["CMD", "pg_isready", "-U", "${BILLING_DB_USER}", "-d", "${BILLING_DB_NAME}"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
 
   billing-app:
     build:
@@ -96,9 +86,6 @@ services:
     env_file:
       - .env
     container_name: rabbitmq-queue
-    environment:
-      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
-      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
     networks:
       - app-network
     restart: always
