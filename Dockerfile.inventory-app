@@ -9,5 +9,3 @@ RUN npm install
 COPY src/inventory-app/ .
 
 EXPOSE 8080
-
-CMD ["node",  "server.js"]

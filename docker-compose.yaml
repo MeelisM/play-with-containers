@@ -37,6 +37,7 @@ services:
     networks:
       - app-network
     restart: always
+    command: sh -c "npx sequelize-cli db:migrate && node server.js"
 
   billing-db:
     build:
@@ -78,6 +79,7 @@ services:
     networks:
       - app-network
     restart: always
+    command: sh -c "npx sequelize-cli db:migrate && node server.js"
 
   rabbit-queue:
     build:
