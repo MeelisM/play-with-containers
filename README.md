@@ -4,6 +4,7 @@ This project implements a microservices architecture using Docker and Docker Com
 
 ## Table of Contents
 
+- [Core Technologies](#core-technologies)
 - [Architecture Overview](#architecture-overview)
   - [Diagram](#diagram)
 - [Prerequisites](#prerequisites)
@@ -14,6 +15,14 @@ This project implements a microservices architecture using Docker and Docker Com
 - [Networks](#networks)
 - [Monitoring and Maintenance](#monitoring-and-maintenance)
 - [Testing and Documentation Tools](#testing-and-documentation-tools)
+
+## Core Technologies
+
+- Node.js
+- PostgreSQL
+- RabbitMQ
+- Docker / Docker Compose
+- Postman
 
 ## Architecture Overview
 
@@ -85,15 +94,15 @@ docker compose ps -a
 
 ## Usage
 
+### API Documentation
+
+Documentation is available at `http://localhost:3000/api-docs`
+
 ### Accessing the API
 
 All external requests can only access the `api-gateway-app` through port `3000`. Direct access to other services is not allowed.
 
 The API is accessible at `http://localhost:3000/api`
-
-### API Documentation
-
-Documentation is available at `http://localhost:3000/api-docs`
 
 ## Volumes
 
@@ -133,7 +142,7 @@ docker compose stop [service_name]
 docker compose down
 ```
 
-### Stopping and Removing: Images, Containers, Volumes, Networks.
+### Stopping the Environment and Removing: Images, Containers, Volumes and Networks.
 
 ```bash
 docker compose down --volumes --rmi all --remove-orphans
