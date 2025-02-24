@@ -68,23 +68,26 @@ docker compose ps -a
 
 ### Inventory Service (inventory-app)
 
+- Port: 8080
 - Description: Manages movie inventory
 - Database: PostgreSQL (inventory-db)
 
 ### Billing Service (billing-app)
 
+- Port: 8081
 - Description: Processes orders through RabbitMQ queue
 - Database: PostgreSQL (billing-db)
 
 ### Message Queue (rabbit-queue)
 
 - Port: 5672 (AMQP)
-- Management UI: 15672
 - Description: Handles asynchronous communication between services
 
 ## Usage
 
 ### Accessing the API
+
+All external requests can only access the `api-gateway-app` through port `3000`. Direct access to other services is not allowed.
 
 The API is accessible at `http://localhost:3000/api`
 
