@@ -47,7 +47,7 @@ The system consists of the following components:
 ### Clone the repository
 
 ```bash
-git clone https://01.kood.tech/git/mmumm/play-with-containers.git && cd play-with-containers
+git clone https://github.com/MeelisM/play-with-containers.git && cd play-with-containers
 ```
 
 ### Rename `.env-example` to `.env` and add the missing values.
